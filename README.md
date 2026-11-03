@@ -156,7 +156,7 @@ This does **not** prove that the remote Z.ai session authenticated successfully.
 
 Use a dedicated Windows account or restrict Desktop Commander's own allowed directories if you need stronger isolation. Never publish your token, share it in screenshots, or paste it into a public issue.
 
-See [Security](docs/SECURITY.md), [Installation (Bahasa Indonesia)](docs/INSTALLATION-ID.md), [Architecture](docs/ARCHITECTURE.md), [Z.ai Website integration](docs/ZAI-WEBSITE.md), and [Tool catalog](docs/TOOLS.md).
+See [Security](docs/SECURITY.md), [Installation (Bahasa Indonesia)](docs/INSTALLATION-ID.md), [Architecture](docs/ARCHITECTURE.md), [Z.ai Website integration](docs/ZAI-WEBSITE.md), and [Tool catalog](docs/TOOLS.md), and [Release checklist](docs/RELEASE-CHECKLIST.md).
 
 ## Hibernate, sleep, and network changes
 
@@ -180,12 +180,12 @@ However, Hibernate and Sleep suspend the computer. The local gateway and Funnel 
 
 ```text
 MCP-Xellen/
-â”œâ”€â”€ src/MCP-Xellen/       # Windows Forms launcher source
-â”œâ”€â”€ scripts/install.ps1   # Install dependencies, create token, publish app
-â”œâ”€â”€ docs/                 # Architecture, setup, security, troubleshooting
-â”œâ”€â”€ package.json          # Pinned Node.js runtime dependencies
-â”œâ”€â”€ config.example.json   # Safe configuration template
-â””â”€â”€ README.md
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ src/MCP-Xellen/       # Windows Forms launcher source
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ scripts/install.ps1   # Install dependencies, create token, publish app
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ docs/                 # Architecture, setup, security, troubleshooting
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ package.json          # Pinned Node.js runtime dependencies
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ config.example.json   # Safe configuration template
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ README.md
 ```
 
 ## Third-party components
