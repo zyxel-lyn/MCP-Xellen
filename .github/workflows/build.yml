@@ -1,0 +1,22 @@
+name: Build Windows app
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Publish Windows x64 application
+        run: dotnet publish .\src\MCP-Xellen\MCP-Xellen.csproj -c Release -r win-x64 --self-contained false -o .\artifacts\publish
+      - name: Verify executable
+        run: if (!(Test-Path .\artifacts\publish\MCP-Xellen.exe)) { throw "MCP-Xellen.exe was not produced" }
+        shell: pwsh

@@ -1,0 +1,11 @@
+{
+  "name": "mcp-xellen-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runtime dependencies for MCP Xellen",
+  "engines": { "node": ">=22.12.0" },
+  "dependencies": {
+    "@wonderwhy-er/desktop-commander": "0.3.1",
+    "supergateway": "4.2.1"
+  }
+}
