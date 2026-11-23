@@ -1,10 +1,9 @@
 {
   "name": "mcp-xellen-tools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP servers: KBBI VI Daring resmi dan literatur ilmiah (OpenAlex/Crossref/DOAJ)",
   "license": "MIT",
   "author": "Wildanun Mukhallid",
-  "readme": "NPM.md",
   "homepage": "https://github.com/zyxel-lyn/MCP-Xellen",
   "repository": {
     "type": "git",
@@ -39,7 +38,6 @@
     "tools/scholar/_entry.py",
     "tools/scholar/bin/",
     "tools/README-TA-TOOLS.md",
-    "NPM.md",
     "README.md"
   ],
   "engines": {
