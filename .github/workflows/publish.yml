@@ -1,0 +1,91 @@
+name: Publish to npm
+
+# Rilis otomatis: push tag v* -> terbit di npm tanpa token.
+# Autentikasi memakai Trusted Publishing (OIDC): GitHub menandatangani
+# identitas workflow, npm menukarnya jadi token sekali pakai.
+#
+# Syarat sekali di npmjs.com (Package settings -> Trusted Publisher):
+#   Owner     : zyxel-lyn
+#   Repository: MCP-Xellen
+#   Workflow  : publish.yml
+#   Environment: (kosong)
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Jalankan npm pack saja, tanpa publish"
+        type: boolean
+        default: false
+
+permissions:
+  id-token: write   # wajib untuk OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 24 (npm 11+) wajib untuk OIDC. Jangan pasang `registry-url`:
+          # itu membuat setup-node menulis .npmrc berisi GITHUB_TOKEN dan
+          # mematikan jalur Trusted Publishing.
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Cek versi tag cocok dengan package.json
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#v}"
+          pkg="$(node -p "require('./package.json').version")"
+          echo "tag=$tag package.json=$pkg"
+          if [ "$tag" != "$pkg" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME tidak cocok dengan versi package.json ($pkg). Naikkan versi dulu."
+            exit 1
+          fi
+
+      - name: Verifikasi isi paket
+        run: |
+          set -euo pipefail
+          npm pack --dry-run 2>&1 | tee /tmp/pack.txt
+          grep -q "bin/cli.js" /tmp/pack.txt
+          if grep -qE "__pycache__|\.pyc" /tmp/pack.txt; then
+            echo "::error::Tarball memuat bytecode Python; bersihkan dulu."
+            exit 1
+          fi
+
+      - name: Uji tool bisa dijalankan
+        run: |
+          set -euo pipefail
+          node bin/cli.js help > /dev/null
+          node bin/cli.js where
+
+      - name: Publish (dry run)
+        if: ${{ inputs.dry_run }}
+        run: npm pack
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        run: npm publish --access public --provenance
+
+  # Tanpa langkah ini, kegagalan pada satu-satunya job tidak terlihat
+  # sebagai status "gagal" pada commit/tag di GitHub UI.
+  summary:
+    if: always()
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hasil
+        run: |
+          echo "publish: ${{ needs.publish.result }}"
+          if [ "${{ needs.publish.result }}" != "success" ]; then
+            echo "::error::Publish gagal — lihat log job publish."
+            exit 1
+          fi
