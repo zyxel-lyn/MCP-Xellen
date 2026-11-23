@@ -12,30 +12,69 @@ Scholar tidak butuh API key; semuanya memakai endpoint publik.
 
 ## Pasang
 
+Pilih klien tujuannya. Tanpa argumen, installer memasang ke Hermes Agent.
+
 ```bash
-npx mcp-xellen-tools check      # cek Python + paket mcp + hermes CLI
-npx mcp-xellen-tools install    # daftarkan kbbi + scholar ke Hermes
-npx mcp-xellen-tools install kbbi
-npx mcp-xellen-tools where      # tampilkan path server
+npx mcp-xellen-tools check                     # cek Python + paket mcp
+npx mcp-xellen-tools install                   # Hermes Agent
+npx mcp-xellen-tools install claude            # Claude Code  -> .mcp.json
+npx mcp-xellen-tools install cursor            # Cursor       -> .cursor/mcp.json
+npx mcp-xellen-tools install cursor --global   # Cursor global
+npx mcp-xellen-tools install vscode            # VS Code      -> code --add-mcp
+npx mcp-xellen-tools install codex             # Codex CLI    -> ~/.codex/config.toml
+npx mcp-xellen-tools install print             # JSON mentah
+```
+
+Target dan tool bisa digabung:
+
+```bash
+npx mcp-xellen-tools install hermes kbbi       # Hermes, hanya KBBI
+npx mcp-xellen-tools install claude cursor     # Claude Code + Cursor
+npx mcp-xellen-tools install print scholar     # JSON, hanya Scholar
 ```
 
 Butuh Node 18+ dan Python 3.10+ yang punya paket `mcp`
 (`pip install mcp httpx beautifulsoup4`). Kalau Python ada di lokasi tidak biasa,
-set `MCP_XELLEN_PYTHON` ke interpreter tersebut.
+set `MCP_XELLEN_PYTHON` ke interpreter tersebut. Installer menyimpan **path
+absolut** interpreter, karena klien MCP menjalankan server dengan environment
+yang sudah difilter.
 
-## Pakai di klien MCP lain
+## Cara kerja per klien
+
+| Target | Yang dilakukan installer | Verifikasi |
+|---|---|---|
+| `hermes` | `hermes mcp add` lalu `hermes mcp test` | harus "Connected" |
+| `claude` | menulis `.mcp.json` di folder kerja | file ditulis, restart klien |
+| `cursor` | menulis `.cursor/mcp.json` (atau `~/.cursor/mcp.json`) | file ditulis |
+| `vscode` | `code --add-mcp` (konfigurasi MCP global VS Code) | exit code 0 |
+| `codex` | menambah blok `[mcp_servers.kbbi]` di `~/.codex/config.toml` | blok yang sudah ada tidak ditimpa |
+| `print` | mencetak JSON ke stdout | tempel manual |
+
+Semua target memakai transport **stdio**: klien men-spawn Python lokal. Tidak ada
+token, tidak ada port, tidak ada server yang perlu dihidupkan lebih dulu.
+
+## Klien remote (z.ai)
+
+z.ai dan klien berbasis web tidak bisa men-spawn proses lokal. Mereka memanggil
+MCP lewat HTTP dengan header `Authorization`. Paket ini belum menyediakannya:
+dibutuhkan gateway HTTP (MCP Xellen Core) yang mengekspos tool yang sama pada
+endpoint `/mcp` dengan token per project. Detailnya di `GATEWAY.md`.
+
+## Pakai tanpa installer
 
 ```json
 {
   "mcpServers": {
-    "kbbi": { "command": "npx", "args": ["-y", "-p", "mcp-xellen-tools", "mcp-kbbi"] },
-    "scholar": { "command": "npx", "args": ["-y", "-p", "mcp-xellen-tools", "mcp-scholar"] }
+    "kbbi": { "command": "<python-absolut>", "args": ["<paket>/tools/kbbi/server.py"] },
+    "scholar": { "command": "<python-absolut>", "args": ["<paket>/tools/scholar/_entry.py"] }
   }
 }
 ```
 
-Contoh pemakaian: memeriksa bentuk baku (`analisa` vs `analisis`), memenggal suku kata,
-mencari literatur akses terbuka, lalu menyusun sitasi APA dari DOI.
+Path `<paket>` bisa dilihat dengan `npx mcp-xellen-tools where`.
+
+Contoh pemakaian: memeriksa bentuk baku (`analisa` vs `analisis`), memenggal suku
+kata, mencari literatur akses terbuka, lalu menyusun sitasi APA dari DOI.
 
 ## Lisensi
 
