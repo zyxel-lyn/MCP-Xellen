@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/npm/l/mcp-xellen-tools.svg)](LICENSE)
 
 Tool KBBI dan literatur ilmiah tersedia di npm: `npx mcp-xellen-tools install`.
-Lihat [NPM.md](NPM.md) untuk paket `mcp-xellen-tools`, atau baca bagian
+Dokumentasi paket ada di [README paket npm](README.md), atau baca bagian
 [Tool bawaan](#tool-bawaan) di bawah.
 
 **Universal AI Gateway & Control Center untuk Windows** — satu endpoint MCP
