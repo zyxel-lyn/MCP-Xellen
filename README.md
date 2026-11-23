@@ -1,5 +1,12 @@
 # MCP Xellen
 
+[![npm](https://img.shields.io/npm/v/mcp-xellen-tools.svg)](https://www.npmjs.com/package/mcp-xellen-tools)
+[![license](https://img.shields.io/npm/l/mcp-xellen-tools.svg)](LICENSE)
+
+Tool KBBI dan literatur ilmiah tersedia di npm: `npx mcp-xellen-tools install`.
+Lihat [NPM.md](NPM.md) untuk paket `mcp-xellen-tools`, atau baca bagian
+[Tool bawaan](#tool-bawaan) di bawah.
+
 **Universal AI Gateway & Control Center untuk Windows** — satu endpoint MCP
 terautentikasi, banyak tool, bisa dipakai agent lokal maupun remote.
 
