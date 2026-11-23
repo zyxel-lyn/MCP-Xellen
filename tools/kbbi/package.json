@@ -1,5 +1,12 @@
 {
-  "name": "kbbi-mcp",
+  "name": "kbbi",
   "version": "0.1.0",
-  "description": "MCP server untuk KBBI VI Daring resmi (Badan Bahasa) - sumber kbbi.kemendikdasmen.go.id dengan cache lokal"
+  "private": true,
+  "description": "Launcher MCP KBBI VI Daring (dipanggil via npx dari repo MCP-Xellen)",
+  "bin": {
+    "kbbi-mcp": "bin/kbbi.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }

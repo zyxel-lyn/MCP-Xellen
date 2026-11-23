@@ -24,7 +24,11 @@ probe2.json
 # === Build output ===
 publish/
 publish-*/
+# bin/ = output build .NET, TAPI bin/ npm launcher harus ikut ter-commit
 bin/
+!bin/cli.js
+!tools/*/bin/
+!tools/*/bin/**
 obj/
 artifacts/
 node_modules/
@@ -50,3 +54,6 @@ tests/browser/*/component_crx_cache/
 # Python
 __pycache__/
 *.pyc
+
+# Node
+node_modules/

@@ -1,0 +1,46 @@
+{
+  "name": "mcp-xellen-tools",
+  "version": "0.1.0",
+  "description": "MCP servers: KBBI VI Daring resmi dan literatur ilmiah (OpenAlex/Crossref/DOAJ)",
+  "license": "MIT",
+  "author": "Wildanun Mukhallid",
+  "homepage": "https://github.com/zyxel-lyn/MCP-Xellen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyxel-lyn/MCP-Xellen.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "kbbi",
+    "indonesian",
+    "dictionary",
+    "openalex",
+    "crossref",
+    "doaj",
+    "academic",
+    "citation"
+  ],
+  "bin": {
+    "mcp-xellen-tools": "bin/cli.js",
+    "mcp-kbbi": "tools/kbbi/bin/kbbi.js",
+    "mcp-scholar": "tools/scholar/bin/scholar.js"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "tools/kbbi/src/",
+    "tools/kbbi/server.py",
+    "tools/kbbi/bin/",
+    "tools/kbbi/requirements.txt",
+    "tools/scholar/client.py",
+    "tools/scholar/server.py",
+    "tools/scholar/_entry.py",
+    "tools/scholar/bin/",
+    "tools/README-TA-TOOLS.md",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

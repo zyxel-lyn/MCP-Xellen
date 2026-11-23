@@ -1,0 +1,12 @@
+{
+  "name": "scholar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Launcher MCP Scholar (dipanggil via npx dari repo MCP-Xellen)",
+  "bin": {
+    "scholar-mcp": "bin/scholar.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
