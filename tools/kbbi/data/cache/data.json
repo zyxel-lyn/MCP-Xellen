@@ -1,0 +1,30 @@
+{
+  "lemma": "data",
+  "syllables": "da.ta",
+  "definitions": [
+    {
+      "text": "keterangan yang benar dan nyata:",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "keterangan atau bahan nyata yang dapat dijadikan dasar kajian (analisis atau kesimpulan)",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "informasi dalam bentuk yang dapat diproses oleh komputer, seperti representasi digital dari teks, angka, gambar grafis, atau suara",
+      "labels": [
+        "n"
+      ]
+    }
+  ],
+  "tesaurus_url": "https://tesaurus.kemendikdasmen.go.id/tematis/lema/data",
+  "found": true,
+  "source_url": "https://kbbi.kemendikdasmen.go.id/entri/data",
+  "fetched_at": "2026-11-23T05:31:39+00:00",
+  "nonstandard": [],
+  "root_lemma": ""
+}

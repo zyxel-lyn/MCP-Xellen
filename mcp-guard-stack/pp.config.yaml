@@ -1,0 +1,30 @@
+default_action: block
+mode: enforce
+signing: required
+server_label: aceh-camera
+receipt_ttl_seconds: 3600
+rules:
+  - id: allow-list-tree
+    tool: list_project_tree
+    action: allow
+  - id: allow-source-read
+    tool: read_project_file
+    action: allow
+  - id: allow-literal-search
+    tool: search_project_text
+    action: allow
+  - id: allow-create-file
+    tool: write_project_file
+    action: allow
+  - id: allow-edit-file
+    tool: edit_project_file
+    action: allow
+  - id: allow-delete-file
+    tool: delete_project_file
+    action: allow
+  - id: allow-create-directory
+    tool: create_project_directory
+    action: allow
+  - id: allow-project-command-catalog
+    tool: execute_project_command
+    action: allow

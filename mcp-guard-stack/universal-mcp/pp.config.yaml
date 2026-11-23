@@ -1,0 +1,60 @@
+default_action: block
+mode: enforce
+signing: required
+server_label: zai-universal-project
+receipt_ttl_seconds: 3600
+rules:
+  - id: allow-aceh-camera-list
+    tool: list_project_tree
+    action: allow
+  - id: allow-aceh-camera-read
+    tool: read_project_file
+    action: allow
+  - id: allow-aceh-camera-search
+    tool: search_project_text
+    action: allow
+  - id: allow-aceh-camera-write
+    tool: write_project_file
+    action: allow
+  - id: allow-aceh-camera-edit
+    tool: edit_project_file
+    action: allow
+  - id: allow-aceh-camera-delete
+    tool: delete_project_file
+    action: allow
+  - id: allow-aceh-camera-mkdir
+    tool: create_project_directory
+    action: allow
+  - id: allow-aceh-camera-command
+    tool: execute_project_command
+    action: allow
+  - id: allow-workspace-list
+    tool: list_workspaces
+    action: allow
+  - id: allow-project-inspect
+    tool: inspect_project
+    action: allow
+  - id: allow-universal-tree
+    tool: universal_list_project_tree
+    action: allow
+  - id: allow-universal-read
+    tool: universal_read_project_file
+    action: allow
+  - id: allow-universal-search
+    tool: universal_search_project_text
+    action: allow
+  - id: hold-universal-write
+    tool: universal_write_project_file
+    action: require_approval
+  - id: hold-universal-edit
+    tool: universal_edit_project_file
+    action: require_approval
+  - id: hold-universal-delete
+    tool: universal_delete_project_file
+    action: require_approval
+  - id: hold-universal-mkdir
+    tool: universal_create_project_directory
+    action: require_approval
+  - id: hold-universal-command
+    tool: universal_run_project_command
+    action: require_approval

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>McpXellen.AvaloniaPoc</AssemblyName>
+    <RootNamespace>McpXellen.AvaloniaPoc</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Headless" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.2" />
+    <PackageReference Include="System.Management" Version="11.0.0" />
+  </ItemGroup>
+  <!-- Reuse the EXISTING Core + Transport without duplication: business logic stays shared. -->
+  <ItemGroup>
+    <Compile Include="..\app\Xellen\Core\**\*.cs" Link="Core/%(Filename)%(Extension)" />
+    <Compile Include="..\app\Xellen\Transport\**\*.cs" Link="Transport/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

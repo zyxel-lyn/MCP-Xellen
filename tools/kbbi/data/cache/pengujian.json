@@ -1,0 +1,30 @@
+{
+  "lemma": "pengujian",
+  "syllables": "peng.u.ji.an",
+  "definitions": [
+    {
+      "text": "proses, cara, perbuatan menguji",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "pemeriksaan atas transaksi keuangan; audit",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "kegiatan memeriksa apakah sistem, baik perangkat lunak maupun perangkat keras, berperilaku sesuai dengan yang diinginkan",
+      "labels": [
+        "n"
+      ]
+    }
+  ],
+  "tesaurus_url": "https://tesaurus.kemendikdasmen.go.id/tematis/lema/pengujian",
+  "found": true,
+  "source_url": "https://kbbi.kemendikdasmen.go.id/entri/pengujian",
+  "fetched_at": "2026-11-23T05:31:34+00:00",
+  "nonstandard": [],
+  "root_lemma": "uji1"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "zai-universal-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Universal project MCP tools for Windows workspaces",
+  "scripts": {
+    "test": "node smoke-test.mjs",
+    "test:guarded": "node smoke-test-guarded.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "cross-spawn": "7.0.6",
+    "zod": "4.6.7"
+  },
+  "workspaceRoots": [
+    "C:\\laragon\\www",
+    "D:\\Wildanun Mukhallid\\Project",
+    "D:\\Unity\\Projects"
+  ],
+  "limits": {
+    "maxReadBytes": 1048576,
+    "maxWriteBytes": 1048576,
+    "maxSearchFiles": 2000,
+    "maxSearchBytes": 33554432,
+    "maxOutputBytes": 1048576
+  }
+}

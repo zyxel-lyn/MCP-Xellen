@@ -1,0 +1,285 @@
+{
+  "startedUtc": "2026-11-13T00:59:29.3275096Z",
+  "finishedUtc": "2026-11-13T00:59:29.3275099Z",
+  "passed": 43,
+  "failed": 1,
+  "skipped": 2,
+  "results": [
+    {
+      "Name": "T1_StartStop",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "start=True err=\u0027\u0027 childrenBefore=2 allGone=True stopped=True"
+    },
+    {
+      "Name": "T2_RestartBackoff",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "state=Failed restarts=2 (expected: 2 auto-restarts with 2s\u21924s backoff then Failed)"
+    },
+    {
+      "Name": "T3_CrashResidualCleanup",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "up=True spawnerPid=48764 residualCleaned=True stateSettled=True finalState=Crashed"
+    },
+    {
+      "Name": "T4_OrphanSweepAndProtection",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "orphansBefore=2 killed=2 orphansAfter=0 protectedAlive=True skippedProt=1 skippedAmbig=1"
+    },
+    {
+      "Name": "T5_RegistryPersistence",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "file=True roundTrip=True backups=20 (dir=D:\\MCP-Bridge\\tests\\p1\\core\\xellen.json)"
+    },
+    {
+      "Name": "T6_LogRotation",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "files=3 (selftest.1.log, selftest.2.log, selftest.log) baseSize=19107 (cap 70000 \u002B slack; rotation fired=True)"
+    },
+    {
+      "Name": "T7_MetricsAccuracy",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "managed=1 active=1 ramProc=8.1MB sessionChildren=4 (\u003E=2 cmd wrappers; conhost may add) descendants=6 (\u003E=4) ramChildren=38.6MB coreRam=64.3MB (all measured WorkingSet)"
+    },
+    {
+      "Name": "T9_GracefulShutdownAll",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "up=True treeGone=True state=Stopped"
+    },
+    {
+      "Name": "T10_StartupRecoveryState",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "statePersisted=True stalePidHandled=999999 findings=0"
+    },
+    {
+      "Name": "T11_ChildPolicyReportOnly",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "start=True err=\u0027\u0027 childrenUp=True markerProcessesAfterPolicy=2 stillAlive=True cleaned=True; thresholds were all zero but no child was culled"
+    },
+    {
+      "Name": "T12_ConcurrencyNoKill",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "childrenAliveAfterCap=2 (\u003E=2; maxConcurrentChildren=1, minAgeForCull=0) concurrencyWarningLogged=True \u2192 cap never kills"
+    },
+    {
+      "Name": "T13_UnknownActivityNeverKilled",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "activityStates=all Unknown (6 children) childrenAlive=2 autoCullIgnoredWarning=True (AutoCullEnabled=true without idle proof \u2192 no kill, warning logged)"
+    },
+    {
+      "Name": "T14_ForeignChildNeverTouched",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "markerChildAlive=True plainChildAlive=True (plain child is outside policy ownership patterns and must survive aggressive thresholds)"
+    },
+    {
+      "Name": "T15_UserRequestedGracefulStopStillWorks",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "up=True treeGone=True state=Stopped (user-requested stop is NOT affected by the no-cull policy)"
+    },
+    {
+      "Name": "T16_ExplicitlyStoppedNotActive",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "activeProcesses=0 state=Stopped pid=null (explicitly stopped server is no longer counted active)"
+    },
+    {
+      "Name": "T17_SnapshotSuccessWithProcesses",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "success=True count=3 capturedUtc=00:56:27.672 (Success with a populated list)"
+    },
+    {
+      "Name": "T18_SnapshotSuccessEmpty",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "success=True count=0 (an empty list on Success is a VALID result, distinct from failure)"
+    },
+    {
+      "Name": "T19_SnapshotExceptionFails",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "success=False error=\u0027synthetic WMI access denied\u0027 (exception \u2192 Failed result; never silently converted to a fake empty success)"
+    },
+    {
+      "Name": "T20_SnapshotTimeoutFails",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "success=False error=\u0027WMI enumeration timed out after 500ms and did not respond to cancellation within 2000ms \u2014 background work may still be running (abandoned, tracked)\u0027 elapsed=2527ms (500ms timeout enforced; caller did not hang for the full 5s enumeration)"
+    },
+    {
+      "Name": "T21_SweepAbortsOnFailureNoKill",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "status=failed error=\u0027synthetic WMI outage\u0027 findings=0 orphansStillAlive=True (2 pids verified individually) \u2192 failure aborts sweep, no kill"
+    },
+    {
+      "Name": "T22_FailureDoesNotChangeSuccessStats",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "lastRunUtcUnchanged=True detected=82\u219282 killed=48\u219248 consecutiveFailures=1"
+    },
+    {
+      "Name": "T23_SweepRecoversAfterWmiRecovers",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "status=completed killed=2 orphansLeft=0 consecutiveFailures=0 lastRunAdvanced=True"
+    },
+    {
+      "Name": "T24_UiStatusShowsUnknownNotClean",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "duringFailure=\u0027ERROR/UNKNOWN \u2014 enumerasi gagal 1x (terakhir 07:56:33: synthetic WMI outage)\u0027 afterRecovery=\u0027CLEAN (07:56:44)\u0027 (failure is displayed as ERROR/UNKNOWN, never as CLEAN)"
+    },
+    {
+      "Name": "T25_ChildPolicyKeepsPreviousDataOnFailure",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "childrenBefore=6 childrenAfterFailure=6 staleFlag=True serverAlive=True childrenStillAlive=2 (failure \u2260 zero children; no destructive action)"
+    },
+    {
+      "Name": "T26_SnapshotTimeoutCancelsWork",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "success=False error=\u0027WMI enumeration timed out after 300ms; cancellation observed (operation stopped)\u0027 elapsed=307ms cancelledDelta=1 abandonedDelta=0 outstandingDrained=True (cancel was issued AND observed \u2014 work provably stopped, not just the wait)"
+    },
+    {
+      "Name": "T27_SnapshotTimeoutAbandonedIsHonest",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "honestAbandoned=True cancelRequested=True abandonedDelta=1 cancelledDelta=0 outstandingDuring=1 (\u002B1 = work still running, reported honestly) drainedAfterRelease=True"
+    },
+    {
+      "Name": "T28_NoPileupAfterTimeouts",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "3 sequential timed-out snapshots: allFailed=True totalElapsed=2671ms (\u003C5s \u2192 each op really stopped instead of piling up) cancelledDelta=3 abandonedDelta=0 outstandingDrained=True"
+    },
+    {
+      "Name": "T29_QueryPidOutcomes",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "normal=True(Success:MCP-Xellen.exe) notFound=True(NotFound) timeout=True(\u0027PID 12345 query timed out after 300ms; cancellation observed (operation stopped)\u0027) failed=True(\u0027synthetic deny for 12346\u0027)"
+    },
+    {
+      "Name": "T30_KillRefusedOnUnknownOrTimeout",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "refusedOnTimeout=True refusedOnFailed=True stillAliveAfterRefusals=True killWorkedAfterRestore=True refusedLogEntries=2"
+    },
+    {
+      "Name": "T31_MidSweepExceptionFailsSweep",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "baseline=completed midRun=failed err=\u0027synthetic mid-sweep failure\u0027 lastRunUnchanged=True detected=84\u219284 killed=50\u219250 consecutiveFailures=1 label=\u0027ERROR/UNKNOWN \u2014 enumerasi gagal 1x (terakhir 07:57:25: mid-sweep exception: synthetic mid-sweep failure)\u0027"
+    },
+    {
+      "Name": "T32_RecoveryAfterMidSweepException",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "status=completed consecutiveFailures=0 label=\u0027CLEAN (07:57:29)\u0027"
+    },
+    {
+      "Name": "T33_AuthStoreLifecycle",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "verifyOk=True wrongRejected=True revokedRejected=True ttlWorks=True expiredRejected=True rotateOldDead=True rotateNewWorks=True (plaintext never printed)"
+    },
+    {
+      "Name": "T34_RedactionCoverage",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "bearer=True tokenJson=True sk=True registered=True pem=True truncLen=212"
+    },
+    {
+      "Name": "T35_EventBusOverflowAccounting",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "published=4 delivered=3 droppedNewest=1 (capacity 2 \u002B blocked handler \u2192 newest dropped and honestly counted)"
+    },
+    {
+      "Name": "T36_RegistryMigrationV2",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "schemaVersion=2 backup=True projectCreated=true authJson=True hashOnlyPersistence=True identityMappedBack=True"
+    },
+    {
+      "Name": "T37_TransportAuthSessionsTools",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "port=8377 healthGET=200 healthPOST=405 noAuth=401 badTok=401 init=200 negotiated=True toolsList=200 noSession=400 bogusSession=404 notif=202 ping=200 badProtoVer=400 call=200(echo:hello) unknownTool=200 origin403=403"
+    },
+    {
+      "Name": "T39_ProjectIsolationTwoProjects",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "initA=200 statusListA=200 toolsA_hasA=True toolsA_leaksB=False initB=200 statusListB=200 toolsB_hasB=True toolsB_leaksA=False crossTokenOnA=401 serverTokBOnA=401 revokedARejected=401 callA=200(True)"
+    },
+    {
+      "Name": "T40_TransportRateLimit",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "statuses=[200,200,200,429] (limit=3/min \u2192 4th request 429)"
+    },
+    {
+      "Name": "T41_ParityNativeVsCompat",
+      "Pass": true,
+      "Skipped": true,
+      "Details": "SKIPPED-BLOCKED: compat endpoint 8023 not reachable or token file missing \u2014 parity cannot be measured in this environment state."
+    },
+    {
+      "Name": "T42_UiSmokeHeadless",
+      "Pass": true,
+      "Skipped": true,
+      "Details": "SKIPPED-BLOCKED: UI smoke (window main \u002B Activity Monitor) requires an interactive desktop session; selftest runs headless. Evidence required: manual open of \u0027Open AI Activity Monitor\u0027 \u002B both windows visible."
+    },
+    {
+      "Name": "T43_BrowserCapsAndOwnership",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "cap3_reject4=True foreignCloseRefused=True foreignGetNull=True ownerCloseOk=True disabledGate=True limitEvent=True authFailureEvent=True (sesi aktif tidak pernah dihentikan paksa saat cap tercapai)"
+    },
+    {
+      "Name": "T44_BrowserStartupSweepNoForeignClaim",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "foreignPid=49268 masihHidupSetelahSweep=True (fingerprint mismatch \u2192 TIDAK di-kill: bukti no-foreign-claim) recordsMarkedStopped=True"
+    },
+    {
+      "Name": "T45_BrowserTokenNoLeak",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "tokenShape(64hex)=True tokenDiStateFile=False tokenDiEvents=False tokenDiLogs=False redactionRegistered=True (token hanya hidup di file secrets per sesi)"
+    },
+    {
+      "Name": "T46_BrowserRealLifecycleAuth",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "started=True portsLive=True noAuth=401 authInit=200 headlessInCmdline=True visibleWindows=0 (Check B per PID) closed=True portsDead=True noResidualProc=True readyEvent=True"
+    },
+    {
+      "Name": "T47_BrowserIdleExpiryAndCrashIsolation",
+      "Pass": true,
+      "Skipped": false,
+      "Details": "idle: started=True expired=True expiredEvent=True (backdate 20m vs batas uji 1m; produksi 15m); crash: started=True detectedFailed=True wrapperStopped=True"
+    },
+    {
+      "Name": "T8_ExternalProtectionAudit",
+      "Pass": false,
+      "Skipped": false,
+      "Details": "killOperations=10, nonMarkerKills=1 (must be 0). External census: 120\u219271, vanishedPids=30704,2020,14184,24360,41512,23036,45604,16980,42376,37796 (informational; natural churn possible). VIOLATIONS: Killing tree PID=28556 reason=\u0027browser residual cleanup (sessionId fingerprint)\u0027 cmd=\u0022node\u0022   \u0022C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\@agent-infra\\mcp-server-browser\\dist\\index.cjs\u0022 --port 8543 --host 127.0.0.1 --user-data-dir D:\\MCP-Br\u2026"
+    }
+  ]
+}

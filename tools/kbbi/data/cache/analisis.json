@@ -1,0 +1,44 @@
+{
+  "lemma": "analisis",
+  "syllables": "a.na.li.sis",
+  "definitions": [
+    {
+      "text": "penyelidikan terhadap suatu peristiwa (karangan, perbuatan, dan sebagainya) untuk mengetahui keadaan yang sebenarnya (sebab musabab, duduk perkaranya, dan sebagainya)",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "penguraian suatu pokok atas berbagai bagiannya dan penelaahan bagian itu sendiri serta hubungan antarbagian untuk memperoleh pengertian yang tepat dan pemahaman arti keseluruhan",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "penyelidikan kimia dengan menguraikan sesuatu untuk mengetahui zat bagiannya dan sebagainya",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "penjabaran sesudah dikaji sebaik-baiknya",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "pemecahan persoalan yang dimulai dengan dugaan akan kebenarannya",
+      "labels": [
+        "n"
+      ]
+    }
+  ],
+  "tesaurus_url": "https://tesaurus.kemendikdasmen.go.id/tematis/lema/analisis",
+  "found": true,
+  "source_url": "https://kbbi.kemendikdasmen.go.id/entri/analisis",
+  "fetched_at": "2026-11-23T05:28:36+00:00",
+  "nonstandard": [
+    "analisa"
+  ],
+  "root_lemma": ""
+}

@@ -1,0 +1,5 @@
+{
+  "name": "kbbi-mcp",
+  "version": "0.1.0",
+  "description": "MCP server untuk KBBI VI Daring resmi (Badan Bahasa) - sumber kbbi.kemendikdasmen.go.id dengan cache lokal"
+}

@@ -1,0 +1,31 @@
+default_action: block
+mode: enforce
+signing: required
+server_label: aceh-camera
+approval_ttl_seconds: 900
+receipt_ttl_seconds: 3600
+rules:
+  - id: allow-list-tree
+    tool: list_project_tree
+    action: allow
+  - id: allow-source-read
+    tool: read_project_file
+    action: allow
+  - id: allow-literal-search
+    tool: search_project_text
+    action: allow
+  - id: require-approval-write
+    tool: write_project_file
+    action: require_approval
+  - id: require-approval-edit
+    tool: edit_project_file
+    action: require_approval
+  - id: require-approval-delete
+    tool: delete_project_file
+    action: require_approval
+  - id: require-approval-command
+    tool: execute_project_command
+    action: require_approval
+  - id: test-approval-gate
+    tool: approval_test
+    action: require_approval

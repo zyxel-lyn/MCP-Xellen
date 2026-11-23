@@ -1,0 +1,24 @@
+{
+  "lemma": "rumah",
+  "syllables": "ru.mah",
+  "definitions": [
+    {
+      "text": "bangunan untuk tempat tinggal",
+      "labels": [
+        "n"
+      ]
+    },
+    {
+      "text": "bangunan pada umumnya (seperti gedung)",
+      "labels": [
+        "n"
+      ]
+    }
+  ],
+  "tesaurus_url": "https://tesaurus.kemendikdasmen.go.id/tematis/lema/rumah",
+  "found": true,
+  "source_url": "https://kbbi.kemendikdasmen.go.id/entri/rumah",
+  "fetched_at": "2026-11-23T05:28:20+00:00",
+  "nonstandard": [],
+  "root_lemma": ""
+}

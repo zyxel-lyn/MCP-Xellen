@@ -1,0 +1,110 @@
+{
+  "records": [
+    {
+      "sessionId": "t44foreign",
+      "clientId": "t44",
+      "name": "",
+      "agentPort": 0,
+      "wrapperPort": 0,
+      "profileDir": "",
+      "tokenFile": "",
+      "agentMarker": "t44-no-match-agent",
+      "wrapperMarker": "t44-no-match-wrapper",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:15.0080941Z",
+      "lastActivityUtc": "2026-11-13T00:58:15.0080947Z",
+      "status": "Stopped",
+      "ownedPids": [
+        49268
+      ],
+      "error": "orphaned; dibersihkan startup sweep (profil tetap tersimpan)"
+    },
+    {
+      "sessionId": "t44dead",
+      "clientId": "t44",
+      "name": "",
+      "agentPort": 0,
+      "wrapperPort": 0,
+      "profileDir": "",
+      "tokenFile": "",
+      "agentMarker": "t44-dead-agent",
+      "wrapperMarker": "t44-dead-wrapper",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:15.0081011Z",
+      "lastActivityUtc": "2026-11-13T00:58:15.0081011Z",
+      "status": "Stopped",
+      "ownedPids": [
+        2147400000
+      ],
+      "error": "orphaned; dibersihkan startup sweep (profil tetap tersimpan)"
+    },
+    {
+      "sessionId": "916cba0b4ec340c99cf237fcda3829c7",
+      "clientId": "t45-a",
+      "name": "Secret hygiene",
+      "agentPort": 0,
+      "wrapperPort": 0,
+      "profileDir": "D:\\MCP-Bridge\\tests\\p1\\browser\\profiles\\916cba0b4ec340c99cf237fcda3829c7",
+      "tokenFile": "D:\\MCP-Bridge\\tests\\p1\\browser\\secrets\\916cba0b4ec340c99cf237fcda3829c7\\token.txt",
+      "agentMarker": "",
+      "wrapperMarker": "",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:16.8033486Z",
+      "lastActivityUtc": "2026-11-13T00:58:16.8033508Z",
+      "status": "Stopped",
+      "ownedPids": [],
+      "error": null
+    },
+    {
+      "sessionId": "7d1416e430c141e1b48604fb69d4a5d5",
+      "clientId": "t46-a",
+      "name": "Real lifecycle",
+      "agentPort": 8543,
+      "wrapperPort": 8643,
+      "profileDir": "D:\\MCP-Bridge\\tests\\p1\\browser\\profiles\\7d1416e430c141e1b48604fb69d4a5d5",
+      "tokenFile": "D:\\MCP-Bridge\\tests\\p1\\browser\\secrets\\7d1416e430c141e1b48604fb69d4a5d5\\token.txt",
+      "agentMarker": "@agent-infra/mcp-server-browser@1.2.29 --port 8543",
+      "wrapperMarker": "--streamableHttp http://127.0.0.1:8543/mcp --port 8643",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:17.3723036Z",
+      "lastActivityUtc": "2026-11-13T00:58:32.9818499Z",
+      "status": "Stopped",
+      "ownedPids": [],
+      "error": null
+    },
+    {
+      "sessionId": "2a85ed091a9a4c1b9f44ce3b1bfcd650",
+      "clientId": "t47-idle",
+      "name": "Idle probe",
+      "agentPort": 8544,
+      "wrapperPort": 8644,
+      "profileDir": "D:\\MCP-Bridge\\tests\\p1\\browser\\profiles\\2a85ed091a9a4c1b9f44ce3b1bfcd650",
+      "tokenFile": "D:\\MCP-Bridge\\tests\\p1\\browser\\secrets\\2a85ed091a9a4c1b9f44ce3b1bfcd650\\token.txt",
+      "agentMarker": "@agent-infra/mcp-server-browser@1.2.29 --port 8544",
+      "wrapperMarker": "--streamableHttp http://127.0.0.1:8544/mcp --port 8644",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:38.9137128Z",
+      "lastActivityUtc": "2026-11-13T00:38:45.5646234Z",
+      "status": "Stopped",
+      "ownedPids": [],
+      "error": null
+    },
+    {
+      "sessionId": "84da49d156464ee3a654d4da657a6d03",
+      "clientId": "t47-crash",
+      "name": "Crash probe",
+      "agentPort": 8545,
+      "wrapperPort": 8645,
+      "profileDir": "D:\\MCP-Bridge\\tests\\p1\\browser\\profiles\\84da49d156464ee3a654d4da657a6d03",
+      "tokenFile": "D:\\MCP-Bridge\\tests\\p1\\browser\\secrets\\84da49d156464ee3a654d4da657a6d03\\token.txt",
+      "agentMarker": "@agent-infra/mcp-server-browser@1.2.29 --port 8545",
+      "wrapperMarker": "--streamableHttp http://127.0.0.1:8545/mcp --port 8645",
+      "headless": true,
+      "createdUtc": "2026-11-13T00:58:55.8002179Z",
+      "lastActivityUtc": "2026-11-13T00:59:00.9069864Z",
+      "status": "Failed",
+      "ownedPids": [],
+      "error": "agent process tidak merespons"
+    }
+  ]
+}

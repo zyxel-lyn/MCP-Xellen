@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "migratedFrom": "|v1\u2192v2 (projects/auth) 2026-11-13",
+  "createdUtc": "2026-11-13T00:58:07.3713502Z",
+  "updatedUtc": "2026-11-13T00:58:07.372685Z",
+  "log": {
+    "directory": "D:\\MCP-Bridge\\tests\\p1\\logs",
+    "baseFileName": "selftest",
+    "maxFileBytes": 10485760,
+    "maxBackups": 5,
+    "minLevel": "Debug"
+  },
+  "orphanSweep": {
+    "mode": "auto",
+    "startupDelaySeconds": 3600,
+    "intervalSeconds": 0
+  },
+  "childPolicy": {
+    "enabled": true,
+    "autoCullEnabled": false,
+    "maxChildLifetimeMinutes": 240,
+    "maxConcurrentChildren": 24,
+    "minAgeForCullMinutes": 30
+  },
+  "protectedProcessPatterns": [
+    "xellen-p1-protected",
+    "desktop-commander-local",
+    "mcp-guard-stack",
+    "construct3-mcp",
+    "_bmcp",
+    "@browsermcp",
+    "reactbits",
+    "shadcn",
+    "@ant-design",
+    "\\Google\\Chrome\\Application"
+  ],
+  "servers": [
+    {
+      "id": "synthetic-rl",
+      "name": "Synthetic MCP synthetic-rl",
+      "command": "node",
+      "arguments": [
+        "D:\\MCP-Bridge\\tests\\p1\\master\\synthetic-mcp-server.mjs"
+      ],
+      "workingDirectory": "D:\\MCP-Bridge\\tests\\p1",
+      "environment": {},
+      "transport": "stdio-native",
+      "port": null,
+      "healthPath": null,
+      "authTokenFile": null,
+      "autoStart": false,
+      "restartPolicy": {
+        "enabled": true,
+        "maxAttempts": 5,
+        "backoffBaseSeconds": 5,
+        "backoffMaxSeconds": 300,
+        "stableResetSeconds": 120
+      },
+      "stopTimeoutSeconds": 10,
+      "ownershipPatterns": [],
+      "childProcessPatterns": []
+    }
+  ],
+  "projects": [],
+  "nativeTransport": {
+    "enabled": true,
+    "preferredPort": 8380,
+    "sessionTimeoutMinutes": 30,
+    "rateLimitPerMinute": 3,
+    "maxBodyBytes": 2097152
+  },
+  "browserManager": {
+    "enabled": false,
+    "headless": true,
+    "idleTimeoutMinutes": 15,
+    "maxActiveSessions": 3,
+    "agentPortsBase": 8500,
+    "wrapperPortsBase": 8600,
+    "profileRoot": "D:\\MCP-Bridge\\browser-profiles",
+    "agentInfraVersion": "1.2.29",
+    "sessionTimeoutMinutes": 30,
+    "secretsRoot": "D:\\MCP-Bridge\\secrets\\browser-sessions",
+    "statePath": "D:\\MCP-Bridge\\config\\browser-sessions-state.json"
+  }
+}

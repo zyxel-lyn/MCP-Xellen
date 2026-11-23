@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "migratedFrom": "hardcoded-Program.cs-2026-11-11|v1\u2192v2 (projects/auth) 2026-11-13",
+  "createdUtc": "2026-11-12T20:59:16.1810506Z",
+  "updatedUtc": "2026-11-12T21:02:26.5076713Z",
+  "log": {
+    "directory": "D:\\MCP-Bridge\\logs",
+    "baseFileName": "xellen-core",
+    "maxFileBytes": 10485760,
+    "maxBackups": 5,
+    "minLevel": "Info"
+  },
+  "orphanSweep": {
+    "mode": "auto",
+    "startupDelaySeconds": 45,
+    "intervalSeconds": 300
+  },
+  "childPolicy": {
+    "enabled": true,
+    "autoCullEnabled": false,
+    "maxChildLifetimeMinutes": 240,
+    "maxConcurrentChildren": 24,
+    "minAgeForCullMinutes": 30
+  },
+  "protectedProcessPatterns": [
+    "construct3-mcp",
+    "_bmcp",
+    "@browsermcp",
+    "reactbits",
+    "shadcn",
+    "@ant-design",
+    "\\Google\\Chrome\\Application",
+    "ZCode",
+    "ZCODE"
+  ],
+  "servers": [
+    {
+      "id": "dc-staging-8023",
+      "name": "Desktop Commander (Staging 8023)",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "arguments": [
+        "D:\\MCP-Bridge\\mcp-guard-stack\\node_modules\\supergateway\\dist\\index.js",
+        "--stdio",
+        "node \u0022D:\\MCP-Bridge\\desktop-commander-local\\package\\dist\\index.js\u0022 --no-onboarding",
+        "--outputTransport",
+        "streamableHttp",
+        "--port",
+        "8023",
+        "--host",
+        "127.0.0.1",
+        "--apiKeyFile",
+        "D:\\MCP-Bridge\\secrets\\mcp-xellen-staging-token.txt",
+        "--stateful",
+        "--sessionTimeout",
+        "1800000",
+        "--healthEndpoint",
+        "/healthz"
+      ],
+      "workingDirectory": "D:\\MCP-Bridge",
+      "environment": {},
+      "transport": "stdio-supergateway",
+      "port": 8023,
+      "healthPath": "/healthz",
+      "authTokenFile": "D:\\MCP-Bridge\\secrets\\mcp-xellen-staging-token.txt",
+      "autoStart": true,
+      "restartPolicy": {
+        "enabled": true,
+        "maxAttempts": 5,
+        "backoffBaseSeconds": 5,
+        "backoffMaxSeconds": 300,
+        "stableResetSeconds": 120
+      },
+      "stopTimeoutSeconds": 10,
+      "ownershipPatterns": [
+        "desktop-commander-local\\package\\dist\\index.js",
+        "mcp-guard-stack\\node_modules\\supergateway\\dist\\index.js"
+      ],
+      "childProcessPatterns": [
+        "desktop-commander-local\\package\\dist\\index.js"
+      ]
+    },
+    {
+      "id": "synthetic-adapter",
+      "name": "Synthetic Adapter Server",
+      "command": "node",
+      "arguments": [
+        "D:\\MCP-Bridge\\tests\\adapter\\synthetic-mcp-server.mjs"
+      ],
+      "workingDirectory": "D:\\MCP-Bridge\\tests\\adapter",
+      "environment": {},
+      "transport": "stdio-native",
+      "port": null,
+      "healthPath": null,
+      "authTokenFile": null,
+      "autoStart": false,
+      "restartPolicy": {
+        "enabled": true,
+        "maxAttempts": 5,
+        "backoffBaseSeconds": 5,
+        "backoffMaxSeconds": 300,
+        "stableResetSeconds": 120
+      },
+      "stopTimeoutSeconds": 10,
+      "ownershipPatterns": [],
+      "childProcessPatterns": []
+    },
+    {
+      "id": "dc-staging-native",
+      "name": "Desktop Commander (native STDIO bridge)",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "arguments": [
+        "D:\\MCP-Bridge\\desktop-commander-local\\package\\dist\\index.js",
+        "--no-onboarding"
+      ],
+      "workingDirectory": "D:\\MCP-Bridge",
+      "environment": {},
+      "transport": "stdio-native",
+      "port": null,
+      "healthPath": null,
+      "authTokenFile": null,
+      "autoStart": false,
+      "restartPolicy": {
+        "enabled": true,
+        "maxAttempts": 5,
+        "backoffBaseSeconds": 5,
+        "backoffMaxSeconds": 300,
+        "stableResetSeconds": 120
+      },
+      "stopTimeoutSeconds": 10,
+      "ownershipPatterns": [
+        "desktop-commander-local\\package\\dist\\index.js"
+      ],
+      "childProcessPatterns": [
+        "desktop-commander-local\\package\\dist\\index.js"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj-cab3a3f0d1",
+      "slug": "adapter-demo",
+      "name": "Z.ai Adapter Demo",
+      "clientIdentityId": "project-88feb3e31e4f",
+      "allowedServers": [
+        "synthetic-adapter"
+      ],
+      "allowedRoots": [],
+      "createdUtc": "2026-11-12T21:02:26.4696747Z",
+      "status": "active"
+    }
+  ],
+  "nativeTransport": {
+    "enabled": true,
+    "preferredPort": 8399,
+    "sessionTimeoutMinutes": 30,
+    "rateLimitPerMinute": 5000,
+    "maxBodyBytes": 2097152
+  }
+}

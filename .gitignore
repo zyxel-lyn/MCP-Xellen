@@ -1,0 +1,48 @@
+# === Secrets & credentials — JANGAN pernah di-commit ===
+secrets/
+*.token
+*token.txt
+mcp-api-key*.txt
+auth.json
+*.pem
+*.key
+.pixel-agents/
+
+# === Runtime state & logs ===
+config/
+logs/
+tmp/
+runtime-state.json
+*.log
+out.json
+probe2.json
+
+# === Profil browser / artefak kerja AI ===
+.zai-work/
+.zcode/
+
+# === Build output ===
+publish/
+publish-*/
+bin/
+obj/
+artifacts/
+node_modules/
+
+# === Backup ===
+backups/
+*.bak
+*.pre-*
+
+# === OS / editor ===
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# === Profil browser hasil test (bukan source) ===
+tests/browser/*/Default/
+tests/browser/*/GrShaderCache/
+tests/browser/*/ShaderCache/
+tests/browser/*/component_crx_cache/
