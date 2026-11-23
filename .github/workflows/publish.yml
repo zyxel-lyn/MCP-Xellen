@@ -37,7 +37,7 @@ jobs:
           # itu membuat setup-node menulis .npmrc berisi GITHUB_TOKEN dan
           # mematikan jalur Trusted Publishing.
           node-version: "24"
-          package-manager-cache: false
+          cache: ""
 
       - name: Cek versi tag cocok dengan package.json
         if: startsWith(github.ref, 'refs/tags/v')
