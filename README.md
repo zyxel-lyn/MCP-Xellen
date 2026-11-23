@@ -71,7 +71,9 @@ MCP-Xellen/
 │       └── Browser/       # Browser manager (P3, belum selesai)
 ├── tools/
 │   ├── kbbi/              # MCP server KBBI VI Daring (Python)
-│   └── zai-adapter/       # adapter Python untuk Z.ai
+│   ├── scholar/           # MCP server literatur ilmiah (OpenAlex/Crossref/DOAJ)
+│   ├── zai-adapter/       # adapter Python untuk Z.ai
+│   └── README-TA-TOOLS.md # ringkasan KBBI + Scholar + skill parafrase
 ├── docs/                  # 17 dokumen: arsitektur, security, rollback, audit
 ├── tests/                 # regression + bukti hasil (results.json)
 ├── MCP_XELLEN_PRD.md      # product requirements
@@ -119,6 +121,52 @@ python -m src.server --demo      # uji tanpa MCP
 Cache di `data/cache/` — satu kata diambil sekali (10,1 dtk → 0,058 dtk untuk
 8 kata), rate limit 1,5 dtk/request ke server Badan Bahasa.
 
+### Scholar — `tools/scholar/`
+
+Pencarian literatur ilmiah dari tiga sumber terbuka, **tanpa API key**:
+
+| Sumber | Kekuatan |
+|---|---|
+| **OpenAlex** | 250jt+ karya, abstrak, hitungan kutipan |
+| **Crossref** | metadata DOI, kanonik untuk sitasi |
+| **DOAJ** | hanya open-access, terkurasi |
+
+| Tool | Fungsi |
+|---|---|
+| `scholar_search` | Cari di 3 sumber, dedupe DOI/judul |
+| `scholar_doi` | Metadata lengkap satu DOI |
+| `scholar_cite` | Sitasi gaya APA |
+| `scholar_oa_only` | Hanya yang bisa diunduh penuh |
+
+```bash
+cd tools/scholar
+python server.py                 # stdio untuk MCP client
+python -m tools.scholar.server --demo
+```
+
+Ini pengganti Perplexity untuk jurnal, tapi cara kerjanya berbeda: Perplexity
+merangkum dengan LLM berbayar, Scholar mengambil **metadata akurat langsung
+dari sumbernya**. Untuk sitasi laporan, metadata justru yang dibutuhkan.
+
+OpenAlex bekerja paling baik dengan **bahasa Inggris** — terjemahkan kata kunci
+Indonesia dulu (`analisis sentimen` → `sentiment analysis`).
+
+Semua tool punya retry untuk 429/5xx dan cache pencarian 1 jam. Isi
+`SCHOLAR_MAILTO` dengan emailmu untuk kuota OpenAlex/Crossref yang lebih longgar.
+
+**Tidak dipakai:** Scopus, ScienceDirect, Web of Science — berlangganan dan
+melarang scraping. Tidak ada jalur legal tanpa langganan kampus.
+
+### Parafrase akademik — skill, bukan MCP
+
+Aturan kerja untuk memparafrase teks laporan langsung di tempat: baca file →
+parafrase kalimat per kalimat → cek kata yang diubah ke KBBI → tampilkan diff →
+tulis balik setelah disetujui. Tiga mode: **KONSERVATIF** (default),
+**MODERAT**, **AGRESIF**.
+
+Sengaja bukan MCP: MCP parafrase hanya membungkus LLM dengan LLM — biaya
+dobel, manfaat nol. Yang kurang bukan alat, tapi aturan.
+
 ### Aceh Camera MCP Bridge
 
 Bridge project-scoped dengan 8 tool terbatas untuk repo
@@ -134,7 +182,7 @@ Bridge project-scoped dengan 8 tool terbatas untuk repo
 | .NET Desktop Runtime | 10.x (untuk app framework-dependent) |
 | Node.js | 22.12.0+ |
 | Tailscale | Client Windows, sudah login (opsional) |
-| Python | 3.11+ (untuk `tools/kbbi`) |
+| Python | 3.11+ (untuk `tools/kbbi` dan `tools/scholar`) |
 
 Dependensi runtime yang dipin oleh paket publikasi:
 `@wonderwhy-er/desktop-commander@0.3.1`, `supergateway@4.2.1`.
