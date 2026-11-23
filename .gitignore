@@ -46,3 +46,7 @@ tests/browser/*/Default/
 tests/browser/*/GrShaderCache/
 tests/browser/*/ShaderCache/
 tests/browser/*/component_crx_cache/
+
+# Python
+__pycache__/
+*.pyc
